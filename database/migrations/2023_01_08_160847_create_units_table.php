@@ -16,7 +16,9 @@ return new class extends Migration
         Schema::create('units', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('building_id');
+            $table->integer('category_id');
+            $table->longtext('image_url')->nullable();
+            $table->longtext('file_url')->nullable();
             $table->float('space')->comment('sq.ft');
             $table->integer('bedroom_count');
             $table->integer('bathroom_count');
@@ -27,8 +29,6 @@ return new class extends Migration
             $table->boolean('sold')->default(0); // Zero Means Its Sold And One Shows Its Not;
             $table->boolean('is_public')->default(0); // Zero Means Its Private And One Shows Its Public;
             $table->enum('exposure', ['north', 'east', 'west', 'south'])->nullable();
-            $table->string('longitude', 50)->nullable();
-			$table->string('latitude', 50)->nullable();
             $table->timestamps();
         });
     }

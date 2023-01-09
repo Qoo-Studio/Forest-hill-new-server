@@ -13,13 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('profiles', function (Blueprint $table) {
+        Schema::create('purchasers', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id')->unique('user_id');
 			$table->boolean('active')->default(1); // Zero Shows User Has Been Deactived.
 			$table->string('first_name');
 			$table->string('last_name');
-			$table->string('gender')->nullable();
 			$table->date('birth_date');
 			$table->string('sin');
 			$table->string('government_id');
@@ -43,6 +41,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('profiles');
+        Schema::dropIfExists('purchasers');
     }
 };

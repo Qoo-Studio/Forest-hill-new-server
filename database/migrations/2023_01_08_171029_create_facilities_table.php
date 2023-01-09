@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->integer('category_id');
+            $table->string('by_walk')->nullable(); // It Takes Some Minutes By Walk.
+            $table->string('by_car')->nullable(); // It Takes Some Minutes By Car.
             $table->string('longitude', 50)->nullable();
 			$table->string('latitude', 50)->nullable();
             $table->timestamps();
