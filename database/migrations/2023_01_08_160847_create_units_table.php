@@ -23,7 +23,7 @@ return new class extends Migration
             $table->integer('bedroom_count');
             $table->integer('bathroom_count');
             $table->integer('floor_number');
-            $table->integer('price')->unsigned();
+            $table->integer('price')->unsigned()->comment('dollar');
             $table->boolean('has_parking')->default(1); // Zero Means It Doesnt Have Parking And One Shows It Has;
             $table->boolean('is_sunny')->default(1); // Zero Means Its not Sunny And One Shows It Is;
             $table->boolean('sold')->default(0); // Zero Means Its Sold And One Shows Its Not;
