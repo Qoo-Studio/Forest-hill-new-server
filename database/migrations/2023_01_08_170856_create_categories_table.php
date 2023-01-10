@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->enum('flag', ['true', 'false'])->default('true'); // True For Building And False For Other Categories.
+            $table->boolean('flag')->default(0); // 1 For Building And 0 For Other Categories.
             $table->timestamps();
         });
     }
