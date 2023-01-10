@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\Api\Admin\UnitController;
+use App\Http\Controllers\Api\Front\OrderController;
+use App\Http\Controllers\Api\Front\UnitController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +20,11 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::group(['middleware' => 'admin', 'prefix' => 'v1'], function ($router) {
-    Route::post('/units/create', [UnitController::class, 'store']);  
+// Route::group(['middleware' => 'admin', 'prefix' => 'v1'], function ($router) {
+//     Route::post('/unit', [UnitController::class, 'store']);  
+// });
+
+Route::group(['prefix' => 'v1'], function ($router) {
+    Route::get('/units', [UnitController::class, 'index']);  
+    Route::post('/order', [OrderController::class, 'store']);  
 });

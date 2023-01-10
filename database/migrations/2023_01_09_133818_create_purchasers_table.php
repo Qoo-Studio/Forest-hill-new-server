@@ -30,6 +30,7 @@ return new class extends Migration
 			$table->string('postal_code');
 			$table->string('profession');
 			$table->text('about')->nullable();
+			$table->longtext('avatar')->nullable();
             $table->timestamps();
         });
     }
