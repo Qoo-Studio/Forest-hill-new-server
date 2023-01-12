@@ -9,6 +9,25 @@ use Illuminate\Http\Request;
 
 class UnitController extends Controller
 {
+     /**
+     * @OA\Get(
+     *      path="/api/v1/units",
+     *      operationId="getUnitList",
+     *      tags={"Units"},
+     *      summary="Get list of units",
+     *      description="Returns list of units",
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *          
+     *       ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
+     *     )
+     */
+
     public function index()
     {
         try {

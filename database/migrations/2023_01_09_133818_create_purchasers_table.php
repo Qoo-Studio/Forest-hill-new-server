@@ -18,10 +18,10 @@ return new class extends Migration
 			$table->boolean('active')->default(1); // Zero Shows User Has Been Deactived.
 			$table->string('first_name');
 			$table->string('last_name');
-			$table->date('birth_date');
+			$table->string('birth_date');
 			$table->string('sin');
 			$table->string('government_id');
-			$table->date('expiry_date');
+			$table->string('expiry_date');
 			$table->string('phone_number');
 			$table->integer('city_id')->index('');
 			$table->string('country')->nullable();
