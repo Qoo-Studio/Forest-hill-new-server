@@ -3,23 +3,17 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\Gravatar;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Password;
-use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class Post extends Resource
+class Province extends Resource
 {
-    public static $tableStyle = 'tight';
-    public static $showColumnBorders = true;
-
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Post::class;
+    public static $model = \App\Models\Province::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -47,16 +41,6 @@ class Post extends Resource
     {
         return [
             ID::make()->sortable(),
-
-            Gravatar::make()->maxWidth(50),
-
-            Text::make('Title')
-                ->sortable()
-                ->rules('required', 'max:255'),
-
-            Text::make('CONTENT')
-                ->sortable(),
-            
         ];
     }
 

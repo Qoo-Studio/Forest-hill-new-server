@@ -124,8 +124,6 @@ class NovaApplicationServiceProvider extends ServiceProvider
         Nova::resourcesIn(app_path('Nova'));
 
         Nova::resources([
-            User::class,
-            // Post::class,
         ]);
     }
 

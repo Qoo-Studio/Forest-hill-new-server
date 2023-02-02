@@ -2,30 +2,19 @@
 
 namespace App\Nova;
 
-use DateTime;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\Boolean;
-use Laravel\Nova\Fields\Code;
-use Laravel\Nova\Fields\Country;
-use Laravel\Nova\Fields\Date;
-use Laravel\Nova\Fields\Heading;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Place;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\MultiSelect;
-
 use Laravel\Nova\Http\Requests\NovaRequest;
-use Laravel\Nova\Panel;
 
-class Profile extends Resource
+class Category extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Profile::class;
-    // public static $with = ['user'];
+    public static $model = \App\Models\Category::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -43,6 +32,17 @@ class Profile extends Resource
         'id',
     ];
 
+    // public static $group = 'Admin';
+
+    // public function menu(Request $request)
+    // {
+    //     return parent::menu($request)->withBadge(function () {
+    //         return static::$model::count();
+    //     });
+    // }
+
+    // public static $displayInNavigation = false;
+
     /**
      * Get the fields displayed by the resource.
      *
@@ -53,32 +53,14 @@ class Profile extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Name', function () {
-                return sprintf('%s %s', $this->first_name, $this->last_name);
-            }),
+            // Text::make('Name')->sortable()->showOnIndex(function (NovaRequest $request, $resource) {
+            //     return auth()->user()->name === 'admin';
+            // }),
+            Text::make('NameDatabaseSeeder')->showOnPreview(),
 
-            
-            Text::make('firstName', 'first_name')->hideFromIndex(),
-            Text::make('lastName', 'last_name')->hideFromIndex(),
-            Text::make('gender'),
-            Boolean::make('Active'),
-            Code::make('about'),
-            Country::make('country'),  
-            Heading::make('Meta'),
-            
-            // Date::make('birth_date'),
-            new Panel('Profile Information', $this->addressFields()),
         ];
     }
-
-    protected function addressFields()
-    {
-        return [
-            Place::make('Profile', 'address')->hideFromIndex(),
-            Text::make('City', 'city')->hideFromIndex(),
-            Text::make('Postal Code', 'postcode')->hideFromIndex(),
-        ];
-    }
+    
 
     /**
      * Get the cards available for the request.

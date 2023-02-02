@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\Front\PurchaserController;
+use App\Http\Controllers\Api\Front\UnitController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +16,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+// Route::group(['middleware' => 'admin', 'prefix' => 'v1'], function ($router) {
+//     Route::post('/unit', [UnitController::class, 'store']);  
+// });
+
+Route::group(['prefix' => 'v1'], function ($router) {
+    Route::get('/units', [UnitController::class, 'index']);  
+    Route::post('/purchaser', [PurchaserController::class, 'store']);  
 });
