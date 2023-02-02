@@ -53,10 +53,10 @@ class Category extends Resource
     {
         return [
             ID::make()->sortable(),
-            // Text::make('Name')->sortable()->showOnIndex(function (NovaRequest $request, $resource) {
-            //     return auth()->user()->name === 'admin';
-            // }),
-            Text::make('NameDatabaseSeeder')->showOnPreview(),
+            Text::make('Name')->sortable()->showOnIndex(function (NovaRequest $request, $resource) {
+                return auth()->user()->name === 'admin';
+            }),
+            // Text::make('NameDatabaseSeeder')->showOnPreview(),
 
         ];
     }

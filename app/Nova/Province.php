@@ -4,6 +4,7 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Province extends Resource
@@ -41,6 +42,7 @@ class Province extends Resource
     {
         return [
             ID::make()->sortable(),
+            Text::make('Name')->sortable(),
         ];
     }
 

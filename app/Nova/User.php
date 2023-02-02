@@ -7,14 +7,14 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class Unit extends Resource
+class User extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Models\Unit::class;
+    public static $model = \App\User::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -22,7 +22,6 @@ class Unit extends Resource
      * @var string
      */
     public static $title = 'id';
-
 
     /**
      * The columns that should be searched.
@@ -43,16 +42,9 @@ class Unit extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Name')->withMeta([
-                'extraAttributes' => [
-                    'placeholder' => 'Enter Unit Name',
-                ],
-            ])->required()
-                ->suggestions([
-                    'Unit 01',
-                    'Unit 02',
-                    'Unit 03',
-                ]),
+            Text::make('Info', function () {
+                return sprintf('%s <==> %s', $this->name, $this->email);
+            }),
         ];
     }
 
