@@ -26,8 +26,8 @@ class CreateUnitsTable extends Migration
             $table->integer('price')->unsigned()->comment('dollar');
             $table->boolean('has_parking')->default(1); // Zero Means It Doesnt Have Parking And One Shows It Has;
             $table->boolean('is_sunny')->default(1); // Zero Means Its not Sunny And One Shows It Is;
-            $table->boolean('sold')->default(0); // Zero Means Its Sold And One Shows Its Not;
-            $table->boolean('is_public')->default(0); // Zero Means Its Private And One Shows Its Public;
+            $table->boolean('sold')->default(1); // One Means Its Sold And Zero Shows Its Not;
+            $table->boolean('is_public')->default(1); // Zero Means Its Private And One Shows Its Public;
             $table->enum('exposure', ['north', 'east', 'west', 'south'])->nullable();
             $table->timestamps();
         });
