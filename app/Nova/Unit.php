@@ -39,7 +39,7 @@ class Unit extends Resource
      * @var array
      */
     public static $search = [
-        'id',
+        'id', 'name'
     ];
 
     /**
@@ -100,7 +100,11 @@ class Unit extends Resource
      */
     public function filters(Request $request)
     {
-        return [];
+        return [
+            new Filters\UnitName,
+            new Filters\CreateUnitFilter,
+
+        ];
     }
 
     /**
