@@ -2,6 +2,8 @@
 
 namespace App\Nova;
 
+use Acme\Analytics\Analytics;
+use Acme\StripeInspector\StripeInspector;
 use DateTime;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
@@ -51,6 +53,7 @@ class Unit extends Resource
     public function fields(Request $request)
     {
         return [
+            StripeInspector::make(),
             ID::make()->sortable(),
             Text::make('Name')->rules('required', 'max:255'),
             // BelongsTo::make('category'),
@@ -89,7 +92,7 @@ class Unit extends Resource
      */
     public function cards(Request $request)
     {
-        return [];
+        return [new Analytics];
     }
 
     /**

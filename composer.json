@@ -14,8 +14,10 @@
         "guzzlehttp/guzzle": "^6.3.1|^7.0.1",
         "laravel/framework": "^7.29",
         "laravel/tinker": "^2.5",
-        "laravel/nova": "*"
-
+        "laravel/nova": "*",
+        "acme/price-tracker": "*",
+        "acme/stripe-inspector": "*",
+        "acme/analytics": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
@@ -55,6 +57,26 @@
         {
             "type": "path",
             "url": "./nova"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/PriceTracker"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/PriceTracker"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/PriceTracker"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/StripeInspector"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/Analytics"
         }
     ],
     "scripts": {
