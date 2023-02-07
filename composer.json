@@ -77,6 +77,10 @@
         {
             "type": "path",
             "url": "./nova-components/Analytics"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/StripeInspector"
         }
     ],
     "scripts": {
